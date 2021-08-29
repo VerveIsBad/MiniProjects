@@ -1,5 +1,7 @@
+'''
 master_pwd = input('What is the master password?: ')
-
+Ignore for now ^^^^^
+'''
 
 def view():
     with open('passwords.txt', mode='r') as f:
