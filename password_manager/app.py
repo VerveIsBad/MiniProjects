@@ -1,7 +1,4 @@
-'''
-master_pwd = input('What is the master password?: ')
-Ignore for now ^^^^^
-'''
+import EncryptText
 
 def view():
     with open('passwords.txt', mode='r') as f:

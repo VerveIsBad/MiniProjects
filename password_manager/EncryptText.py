@@ -1,0 +1,2 @@
+class Encrypt_text:
+    
