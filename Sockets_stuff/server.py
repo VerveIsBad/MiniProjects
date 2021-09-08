@@ -5,6 +5,7 @@ import threading
 HEADER = 64
 PORT = 5050
 SERVER = socket.gethostbyname(socket.gethostname())
+# Want to be non-local? Change to pulic IP adress ^^^
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCCONECT_MESSAGE = "!DISCONNECT"
@@ -29,17 +30,20 @@ def handle_client(conn, addr):
         Message: '(message length) 7 (Insert spaces for padding)'
         """
         msg_length = conn.recv(HEADER).decode(FORMAT)
-
         # Does message actually contain text / real message?
         if msg_length:
             msg_length = int(msg_length)
             msg = conn.recv(msg_length).decode(FORMAT)
-            
             # Checks if the client has sent the, "Disconnect message"
             if msg == DISCCONECT_MESSAGE:
                 connected = False  
         
             print(f"[{addr}] {msg}")
+            '''
+            Server to client messaging:
+
+            conn.send('MEssage stuHEhehepodv'.encode(FORMAT))
+            '''
     
     conn.close()
 
