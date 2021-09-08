@@ -5,7 +5,7 @@ import threading
 HEADER = 64
 PORT = 5050
 SERVER = socket.gethostbyname(socket.gethostname())
-# Want to be non-local? Change to pulic IP adress ^^^
+# Want to be non-local? Change to public IP adress ^^^
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCCONECT_MESSAGE = "!DISCONNECT"
