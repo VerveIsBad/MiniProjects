@@ -3,12 +3,12 @@ import threading
 
 
 HEADER = 64
-PORT = 5050
+PORT = 8080
 SERVER = socket.gethostbyname(socket.gethostname())
 # Want to be non-local? Change to public IP adress ^^^
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
-DISCCONECT_MESSAGE = "!DISCONNECT"
+DISCCONECT_MESSAGE = '!DISCONNECT'
 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

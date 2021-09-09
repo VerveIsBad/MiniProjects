@@ -1,10 +1,10 @@
 import socket
 
 HEADER = 64
-PORT = 5050
+PORT = 8080
 FORMAT = 'utf-8'
 DISCCONECT_MESSAGE = "!DISCONNECT"
-SERVER = "10.68.1.103"
+SERVER = "10.68.14.15"
 # Connect to Gloal server? Change to it's public IP ^
 ADDR = (SERVER, PORT)
 
