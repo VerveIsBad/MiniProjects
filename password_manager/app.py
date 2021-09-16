@@ -1,5 +1,12 @@
 import EncryptText
 import passGen
+"""
+TO-DO:
+
+1. Add comments 
+2. Implemnt pass gen. (Modular)
+3. Implement Encryption 
+"""
 
 def view():
     with open('passwords.txt', mode='r') as f:
