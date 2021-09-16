@@ -1,4 +1,5 @@
 import EncryptText
+import passGen
 
 def view():
     with open('passwords.txt', mode='r') as f:
@@ -8,6 +9,7 @@ def view():
             print("---------------------------------")
             print("User", user, '| Password ' + passw)
             print('---------------------------------')
+
 def add():
     name = str(input('Input account name:'))
     pwd = str(input('Input password: '))
