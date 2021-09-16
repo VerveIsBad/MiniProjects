@@ -4,8 +4,7 @@ pwd = 0
 """
 TO-DO:
 
-1. Add comments 
-2. Implement Encryption 
+1. Implement Encryption 
 """
 
 # Generates custom password using gen_pass(size) from pass_gen.
