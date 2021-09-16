@@ -10,7 +10,10 @@ password = []
 """
 
 def gen_pass(size):
+    '''
+    adds a random character to 'password' times 'size'
+    '''
     password_STR = ""
     for i in range(size):
         password.append(random.choice(chars))
-    return password_STR.join(password) 
+    return password_STR.join(password) # converts to string
