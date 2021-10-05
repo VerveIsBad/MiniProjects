@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <iomanip>
 using namespace std;
 
 /*
@@ -37,6 +39,38 @@ var--; preix subtraction
 ---------
 */
 
+
+
+int get_rows() {
+    int rows;
+    cout << "input rows\n";
+    cin >> rows;
+    return rows;
+}
+
+int get_collums() {
+    int collums;
+    cout << "input collums\n";
+    cin >> collums;
+    return collums;
+}
+
+
+int create_matrix(int rows, int collums, int arr[rows] [collums]) {
+    cout << "input elements\n"; // Gets the elemets of the matrix
+    for (int i = 0; i < rows; i++) { // loops times number of rows
+        for (int j = 0; j < collums; j++) { // loops times number of collums
+            cout << "Currently on row:" << " " << i << " " << "and collum: " << " " << j << "\n";
+            cin >> arr[i] [j]; // gets the element of row [i] and collum [j] from user input
+        }
+    }
+}
+
 int main() {
-    cout << "hello\n";
+    int rows = get_rows();
+    int collums = get_collums();
+    int myArr[rows][collums];
+
+
+
 }
