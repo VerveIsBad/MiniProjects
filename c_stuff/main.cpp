@@ -64,6 +64,7 @@ int create_matrix(int rows, int collums, int arr[rows] [collums]) {
             cin >> arr[i] [j]; // gets the element of row [i] and collum [j] from user input
         }
     }
+    return 0;
 }
 
 int main() {
