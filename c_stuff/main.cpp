@@ -1,47 +1,14 @@
+#include <cmath>
 #include <iostream>
 #include <vector>
 #include <iomanip>
 using namespace std;
 
-/*
-Basic statments
-----------------
-if (condition) {
-    // code 
-}
-
-while (condition) {
-    // executes until condition is false
-}
-
-for ( init; condition; increment ) {
-  // executes until condition is false
-}
-----------------
-
-Basic operaters
-----------------
-* = multiplaction
-/ = division 
-% = remainder after division
-+ = addition
-- = subtraction
-----------------
-+= 
--=
-/=
-%=
---------
-var++; prefix addition
-var--; preix subtraction
---var; postfix subtraction 
-++var; postfix addition
----------
-*/
-
-
 
 int get_rows() {
+    /*
+    Gets the number of rows the user wants in their matrix from input.
+    */
     int rows;
     cout << "input rows\n";
     cin >> rows;
@@ -49,6 +16,9 @@ int get_rows() {
 }
 
 int get_collums() {
+    /*
+    Gets the number of collums the user want in their matrix from input.
+    */
     int collums;
     cout << "input collums\n";
     cin >> collums;
@@ -56,7 +26,13 @@ int get_collums() {
 }
 
 
-int create_matrix(int rows, int collums, int arr[rows] [collums]) {
+void create_matrix(int rows, int collums) {
+    /*
+    Creates a matrix given x rows and y collums 
+    and then prints the matrix. Does not return it.
+    matrix is then deletd
+    */
+    int arr[rows] [collums];
     cout << "input elements\n"; // Gets the elemets of the matrix
     for (int i = 0; i < rows; i++) { // loops times number of rows
         for (int j = 0; j < collums; j++) { // loops times number of collums
@@ -64,14 +40,68 @@ int create_matrix(int rows, int collums, int arr[rows] [collums]) {
             cin >> arr[i] [j]; // gets the element of row [i] and collum [j] from user input
         }
     }
-    return 0;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < collums; j++) {
+            cout << arr[i] [j] << " ";
+        }
+    cout << "\n";
+    }
+}
+
+void matrix_stuff() {
+    int rows = get_rows();
+    int collums = get_collums();
+    create_matrix(rows, collums);
+}
+
+int add(int a=0, int b=0) {
+    return a + b;
+}
+
+float add(float a=0.0, float b=0.0) {
+    return a + b;
+}
+
+double add(double a=0.0, double b=0.0) {
+    return a + b;
+}
+
+void overload() {
+    string input;
+    cout << "Input number type (float, int, double)" << endl;
+    cin >> input;
+
+    if (input == "int") {
+        int a;
+        int b;
+        cout << "Input two numbers to add\n";
+        cin >> a;
+        cin >> b;
+        int sum;
+        sum = add(a,b);
+        cout << "Your total of" << " " << a << " " << "and" << " " << b << " " << "is" << " " << sum << endl;
+    } else if (input == "float") {
+        float a;
+        float b;
+        cout << "Input two numbers to add\n";
+        cin >> a;
+        cin >> b;
+        float sum = add(a,b);
+        cout << "Your total of" << " " << a << " " << "and" << " " << b << " " << "is" << " " << sum << endl;
+    } else if (input == "double") {
+        double a;
+        double b;
+        cout << "Input two numbers to add\n";
+        cin >> a;
+        cin >> b;
+        double sum = add(a,b);
+        cout << "Your total of" << " " << a << " " << "and" << " " << b << " " << "is" << " " << sum << endl;
+    } else {
+        cout << "error, please make sure to select from the orginal prompt. (float, int, double)\n";
+    }
 }
 
 int main() {
-    int rows = get_rows();
-    int collums = get_collums();
-    int myArr[rows][collums];
-
-
-
+    matrix_stuff();
 }
