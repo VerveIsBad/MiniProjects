@@ -17,7 +17,6 @@ def find_hash(file, target):
                 print(f"Match found: {line}")
                 print(f"line = {hexi}, target = {target}")
                 return n
-                break
 
 
 find_hash(file, target)

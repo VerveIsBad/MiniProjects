@@ -39,12 +39,17 @@ void create_matrix(int rows, int collums) {
             cin >> arr[i] [j]; // gets the element of row [i] and collum [j] from user input
         }
     }
-
+    cout << "Your matrix:\n"; // prints the matrix in a nice manner.
     for (int i = 0; i < rows; i++) {
+        cout << "[";
         for (int j = 0; j < collums; j++) {
-            cout << arr[i] [j] << " ";
+            if (j == collums-1) {
+                cout << arr[i][j];
+            } else {
+                cout << arr[i][j] << ",";
+            }
         }
-    cout << "\n";
+        cout << "]\n";  
     }
 }
 
@@ -121,6 +126,32 @@ void overload() {
     }
 }
 
+int factorial(int n=0) {
+    /*
+    Gets the factorial of a given number n
+    */
+    if (n==1) {
+        return 1;
+    } else {
+        return n * factorial(n-1);
+    }
+}
+
+void display_array(int arr[], int size) {
+    /*
+    Displays an array
+    */
+    cout << "[";
+    for (int i = 0; i < size; i++) {
+        if (i == (size - 1)) {
+            cout << arr[i];
+        } else {
+            cout << arr[i] << ",";
+        }
+    }
+    cout << "]\n";
+}
+
 int main() {
-    matrix_stuff();
+    create_matrix(3,3);
 }

@@ -9,14 +9,15 @@ TO-DO:
 
 # Generates custom password using gen_pass(size) from pass_gen.
 def get_custom_pass():
+    '''
+    Gets password size, generates password and then sets that value to pwd.
+    Ask if the user wants a new password, if so it simple generates a new one and repeats the process.
+    '''
+    
     global pwd
     running = True
     
     while running:
-        '''
-        Gets password size, generates password and then sets that value to pwd.
-        Ask if the user wants a new password, if so it simple generates a new one and repeats the process.
-        '''
         size = int(input("Input size/length of the password that you want\n"))
         pwd = pass_gen.gen_pass(size)
         user_want_new_pass = input(f'Your generated password is {pwd}  dow you want a different one (Y/N)\n')
