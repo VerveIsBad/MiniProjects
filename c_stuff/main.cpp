@@ -25,7 +25,6 @@ int get_collums() {
     return collums;
 }
 
-
 void create_matrix(int rows, int collums) {
     /*
     Creates a matrix given x rows and y collums 
@@ -50,29 +49,49 @@ void create_matrix(int rows, int collums) {
 }
 
 void matrix_stuff() {
+    /*
+    Creates a matrix by calling:
+    get_rows()
+    get_collums()
+    and create_matrix with arr[rows][collums]
+    */
     int rows = get_rows();
     int collums = get_collums();
     create_matrix(rows, collums);
 }
 
 int add(int a=0, int b=0) {
+    /*
+    Adds two ints
+    */
     return a + b;
 }
 
 float add(float a=0.0, float b=0.0) {
+    /*
+    adds two floats
+    */
     return a + b;
 }
 
 double add(double a=0.0, double b=0.0) {
+    /*
+    adds two doubles
+    */
     return a + b;
 }
 
 void overload() {
+    /*
+    gets the type of the two numbers to add.
+    creates the numbers with said type via console
+    stores the result of add(a,b) in "sum" and prints sum
+    */
     string input;
-    cout << "Input number type (float, int, double)" << endl;
+    cout << "Input number type (float, int, double)" << endl; // gets num type
     cin >> input;
 
-    if (input == "int") {
+    if (input == "int") { // creates and add two numbers of given input.
         int a;
         int b;
         cout << "Input two numbers to add\n";
