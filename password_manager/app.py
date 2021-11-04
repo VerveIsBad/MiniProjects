@@ -1,5 +1,6 @@
 import EncryptText
 import pass_gen
+import sys
 pwd = 0
 """
 TO-DO:
@@ -13,34 +14,34 @@ def get_custom_pass():
     Gets password size, generates password and then sets that value to pwd.
     Ask if the user wants a new password, if so it simple generates a new one and repeats the process.
     '''
-    
     global pwd
     running = True
+    size = int(input("Input size/length of the password that you want\n"))
     
     while running:
-        size = int(input("Input size/length of the password that you want\n"))
-        pwd = pass_gen.gen_pass(size)
-        user_want_new_pass = input(f'Your generated password is {pwd}  dow you want a different one (Y/N)\n')
-        
-        if user_want_new_pass == 'Y':
+        pwd = pass_gen.gen_pass(size) # gets a random password from the pass_gen file.
+        print(" ") # user want new password?
+        user_want_new_pass = input(f'Your generated password is | {pwd} | do you want a different one (Y/N)\n').lower()
+
+        if user_want_new_pass == 'y':
             continue
-        elif user_want_new_pass == 'N':
+        elif user_want_new_pass == 'n':
             return pwd
         else:
-            print(f"you entered {user_want_new_pass}  please use the original prompt (Y/N)\n")
-            continue 
-            
-
+            print("please select from the original prompt")
+        
 def view():
-
-    # Opens file in read mode and prints the file. (Removes all "\n")
-
+    """
+    Prints all of the contents of
+    the passwords.txt file.
+    """
+    #Opens file in read mode and prints the file. (Removes all "\n")
     with open('passwords.txt', mode='r') as f:
         for line in f.readlines():
             data = line.rstrip()
-            user, passw = data.split('|')
+            user, passw = data.split('|') # Prints the values in passwords.txt
             print("---------------------------------")
-            print("User", user, '| Password ' + passw)
+            print(f"User: \033[1;32;40m{user}\033[0m | Password: \033[1;31m{passw}\033[0m")
             print('---------------------------------')
 
 def add():
@@ -53,21 +54,28 @@ def add():
     opens file and does the same as it would with a random password, exept pwd = user's input.
     '''
     global pwd
-    name = str(input('Input account name\n'))
-    user_want_custom_pass = input('Do you want a randomly generated password (Y/N)\n')
-    
-    if user_want_custom_pass == 'Y':
-        get_custom_pass()
-        with open('passwords.txt', mode='a') as f:
-            f.write(name + '|' + pwd + '\n')
-    
-    elif user_want_custom_pass == 'N':
-        pwd = str(input('Input password\n'))
-        with open('passwords.txt', mode='a') as f:
-            f.write(name + '|' + pwd + '\n')
-    else:
-        print('An unknown error occured.')
+    running = True
+    name = str(input("Input account name: "))
+    while running:
+        user_want_custom_pass = input('Do you want a randomly generated password (y/n)\n')
+        print('')
+        if user_want_custom_pass == 'Y' or user_want_custom_pass == "y":
+            get_custom_pass()        
+            running = False
+        elif user_want_custom_pass == 'N' or user_want_custom_pass == "n":
+            pwd = str(input('Input password: '))
+            running = False
+        elif user_want_custom_pass == 'q':
+            print('')
+            sys.exit("Exiting . . .")
+        else:
+            print('')
+            print("Please select from the orgnal prompt.")
+            continue
+        
 
+    with open('passwords.txt', mode='a') as f:
+        f.write(name + '|' + pwd + '\n')
 
 while True:
     print("Would you like to add a new password or view existing ones?")

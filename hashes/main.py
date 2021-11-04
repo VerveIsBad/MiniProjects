@@ -1,6 +1,6 @@
 import hashlib
 target = "999cae1e22fe69d89d6f56e3050f18cb" # target hash
-file = "sample.txt"
+file = "pokemon_names.txt"
 def find_hash(file, target):
     """
     Given a target MD5 hash, and a file of words
